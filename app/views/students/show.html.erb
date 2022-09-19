@@ -1,0 +1,9 @@
+<h1>Details of <%= @student.first_name%> <%= @student.last_name %></h1>
+
+<div>
+    <p><strong> First Name: <strong> <%= @student.first_name %> </p>
+    <p><strong> Last Name: <strong> <%= @student.last_name %> </p>
+    <p><strong> Email address: <strong> <%= @student.first_name %> </p>
+</div>
+
+<%= link_to 'Students list', students_path %> | <%= link_to 'Edit', edit_student_path(@student) %> | <%= link_to 'Delete', @student, method: :delete, data: { confirm: 'Are you sure?'} %>
