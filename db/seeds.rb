@@ -21,6 +21,10 @@ student = Student.create(
     )
 end
 
+Student.all.each do |student|
+    student.blogs.create(title: "Dummy blog for Student #{student.id}", content: "Custom content peding")
+end
+
 # student = Student.new(
 #     first_name: 'Ida',
 #     last_name: 'Kronic Zaja',
