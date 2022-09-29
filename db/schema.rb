@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_27_154030) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_29_000459) do
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -38,6 +38,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_27_154030) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "student_projects", force: :cascade do |t|
+    t.integer "student_id", null: false
+    t.integer "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "submission_date"
+    t.index ["project_id"], name: "index_student_projects_on_project_id"
+    t.index ["student_id"], name: "index_student_projects_on_student_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -51,4 +68,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_27_154030) do
     t.string "alternate_contact_number"
   end
 
+  create_table "sub_demos", force: :cascade do |t|
+    t.string "title"
+    t.integer "demo_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["demo_id"], name: "index_sub_demos_on_demo_id"
+  end
+
+  add_foreign_key "student_projects", "projects"
+  add_foreign_key "student_projects", "students"
+  add_foreign_key "sub_demos", "demos"
 end
