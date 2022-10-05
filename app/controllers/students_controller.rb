@@ -5,7 +5,8 @@ class StudentsController < ApplicationController
 
 #showing the resource
     def index
-        @students = Student.all
+        @students = Student.order('lower(first_name)')
+
     end
 
 #creating new resource
