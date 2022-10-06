@@ -1,0 +1,22 @@
+<div id="<%= dom_id blog %>">
+  <p>
+    <strong>Name:</strong>
+    <%= blog.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= blog.content %>
+  </p>
+
+    <p>
+    <strong>Student:</strong>
+        <% if blog.student.present? %>
+            <%= blog.student.full_name %>
+        <% else %>
+             doesn't exist
+        <% end %>
+  </p> 
+    <button> <%= link_to 'Delete', blog, method: :delete, data: { confirm: 'Are you sure?'} %> </button>
+
+</div>
