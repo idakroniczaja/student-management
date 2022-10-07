@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
   resources :students
 
+  get '/test', to: 'tests#what'
+
 
 end
