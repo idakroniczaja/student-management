@@ -47,6 +47,14 @@ class StudentsController < ApplicationController
         @student.destroy
         redirect_to students_path, notice: 'Student has been deleted successfully.'
     end
+
+    def tests
+    end
+
+    def personal_details
+    end
+
+
     
     private 
 
