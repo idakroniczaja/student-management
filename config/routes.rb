@@ -26,5 +26,22 @@ Rails.application.routes.draw do
 
   get '/about', to: 'welcome#about'
 
+  #points to the admin controller and adds prefix to the routes (admin/students#destroy, /admin/students/:id)
+  namespace :admin do
+    resources :students
+  end
+
+  # doesn't point to the admin controller, but adds previx to the routes (students#destroy, /admin/students/:id)
+  # scope :admin do
+  #   resources :students
+  # end
+
+  
+# points to the admin controller, but will remove previx admin from the routes (admin/students#destroy, /students/:id)
+  # scope module: :admin do
+  #   resources :students
+  # end
+  
+
 
 end
