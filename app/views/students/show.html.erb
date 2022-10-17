@@ -1,11 +1,13 @@
 <h1>Details of <%= @student.first_name%> <%= @student.last_name %></h1>
 <p><%= notice %> </p>
+<% @student %>
 <div>
     <p><strong> Name: <strong> <%= @student.full_name %></p>
     <p><strong> First Name: <strong> <%= @student.first_name %> </p>
     <p><strong> Last Name: <strong> <%= @student.last_name %> </p>
     <p><strong> Email address: <strong> <%= @student.first_name %> </p>
-    <p><strong> AGE: <strong> <%= @student.age %> </p>
+    <p><strong> DOB: <strong> <%= formatted_date(@student.date_of_birth) %> </p>
+
 </div>
 
 <%= link_to 'Students list', students_path %> | <%= link_to 'Edit', edit_student_path(@student) %> | <%= link_to 'Delete', @student, method: :delete, data: { confirm: 'Are you sure?'} %>

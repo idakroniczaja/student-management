@@ -3,6 +3,8 @@ class StudentsController < ApplicationController
 #callback
     before_action :set_student, only: %i[show edit update destroy]
 
+    helper_method :formatted_date
+
 #showing the resource
     def index
         @students = Student.order('lower(first_name)')
@@ -64,6 +66,10 @@ class StudentsController < ApplicationController
 
     def set_student
         @student = Student.find(params[:id])
+    end
+
+    def formatted_date(date)
+        date.strftime('%A, %b %d, %Y') if date.present?
     end
     
 end
