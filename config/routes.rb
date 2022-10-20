@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   #points to the admin controller and adds prefix to the routes (admin/students#destroy, /admin/students/:id)
   namespace :admin do
     resources :students
+    get 'dashboard' => 'dashboard#index'
   end
 
   # doesn't point to the admin controller, but adds previx to the routes (students#destroy, /admin/students/:id)
